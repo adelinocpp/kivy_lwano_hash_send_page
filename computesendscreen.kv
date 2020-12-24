@@ -1,25 +1,5 @@
 #:kivy 2.0.0
 
-# there are three screens 
-windowManager: 
-    loginWindow: 
-
-<ProgressSpinner>:
-	# canvas.before:
-	# 	PushMatrix
-	# 	Rotate:
-	# 		origin: self.center
-	# 		axis: 0, 0, 1
-	# 		angle: self.rotation
-	# canvas.after:
-	# 	PopMatrix
-	# Label:
-	# 	# font_name: "images/fontello.ttf"
-	# 	pos: root.pos
-	# 	size: root.size
-	# 	text: root.symbol
-	# 	font_size: sp(24)
-
 <ProgressSpinner>:
 	canvas:
 		Color:
@@ -31,29 +11,7 @@ windowManager:
 				self._angle_center + self._angle_end)
 			width: self._stroke
 			cap: 'none'
-
-# <LoadDialog>:
-#     BoxLayout:
-#         size: root.size
-#         pos: root.pos
-#         orientation: "vertical"
-#         FileChooserListView:
-#             id: filechooser
-#         BoxLayout:
-#             size_hint_y: None
-#             height: 30
-#             Button:
-#                 text: "Cancel"
-#                 on_release: root.cancel()
-#             Button:
-#                 text: "Load"
-#                 on_release: root.load(filechooser.path, filechooser.selection)
-
-# GUI for the login window 
-
 <myView@Label>:
-    #orientation: 'horizontal'
-    #Label:
     text_size: self.size
     valign: "middle"
     halign: 'left'
@@ -68,7 +26,7 @@ windowManager:
     num_files: num_files
     btn_enviar: btn_enviar
     hashProgress: hashProgress
-    # sendProgress: sendProgress
+    sendProgress: sendProgress
     tabLoad: tabLoad
     TabbedPanel:
         size_hint: .975, .975
@@ -121,31 +79,20 @@ windowManager:
                         size_hint_y: None
                         height: self.minimum_height
                         orientation: 'vertical'
-                        #halign: 'left'
                 ProgressBar:
                     id: hashProgress
                     size_hint: 0.95, 0.05
                     pos_hint: {"x" : 0.025, "top" : 0.225} 
-                    # value: 0
-                    # min: 0
-                    # max: 100
-
-                # ProgressSpinner:
-                #     id: sendProgress
-                #     size_hint: 0.1, 0.1
-                #     pos_hint: {"x" : 0.025, "top" : 0.15} 
                 ProgressSpinner:
                     id: sendProgress
                     size_hint: 0.05, 0.05
-                    pos_hint: {"x" : 0.025, "top" : -0.175} 
+                    pos_hint: {"x" : 0.025, "top" : 0.175} 
 					speed: 1
 					color: 0.5, 0.5, 0.5, 1
                     auto_start: False
                 BoxLayout:
                     size_hint: 0.5, 0.05
-                    #size_hint_y: None
                     pos_hint: {"x" : 0.5, "top" : 0.075} 
-                    #height: 30
                     Button:
                         id: btn_enviar
                         text: "Calcular e enviar"
